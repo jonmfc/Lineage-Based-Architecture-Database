@@ -16,7 +16,7 @@ Test Cases:
 
 References:
 
-The database architecture L-Store, was developed based on the Industrial and Applicationspaper "L-Store: A Real-time OLTP and OLAP System" by Mohammad Sadoghi, Souvik Bhattacherjee, Bishwaranjan Bhattacharjee and Mustafa Canim.
+The database architecture L-Store, was developed based on the Industrial and Application paper "L-Store: A Real-time OLTP and OLAP System" by Mohammad Sadoghi, Souvik Bhattacherjee, Bishwaranjan Bhattacharjee and Mustafa Canim.
 
 
 
