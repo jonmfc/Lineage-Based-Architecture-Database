@@ -1,6 +1,6 @@
 # Lineage-Based-Architecture-Database
 
-By: Jonathan Mitelman & Other Team Members
+By: Jonathan Mitelman
 
 In this program I along with my team of developers have created a real code implementation of the L-Store Database Architecture. The database acts as a hybrid, meaning it offers both transactional (OTLP) and analytical (OLAP) workloads with a single engine, ensuring a wider arrange of uses. A significant advantage of the database architecture is its speed with regard to querying due to the lineage approach. Additionally, L-Store's handling of locks reduces contention, ensuring data integrity and improving the systems throughput. The approach of lazy staging to disk in L-Store optimizes initial data handling in-memory, then efficiently persists data, balancing write and read performance. The strategy ensures a high performance for both writes and reads, making it ideal for handling complex workloads with minimal latency. Through several month long project, the program showcases the flexbility of the L-Store based Database Architecture and demonstrates its potential for storing data in the future. 
 
