@@ -11,12 +11,11 @@ def delete_test_databases():
     try:
         shutil.rmtree(directory_to_delete, ignore_errors=True) 
     except Exception as e:
-        print(f"Error deleting {directory_to_delete}: {e}")  # write exception (should not happen)
+        print(f"Error deleting {directory_to_delete}: {e}") 
 
 delete_test_databases() # Ensures test is reset
 total_time = process_time()
 
-# Product ID, Price, Stock Quantity, and Rating
 db = Database()
 products_table = db.create_table('Products', 5, 0)
 query = Query(products_table)
@@ -50,7 +49,7 @@ for i in range(0, 10000):
 select_time_1 = process_time()
 print("Selecting 10k product records took:      \t\t\t", select_time_1 - select_time_0)
 
-# Measuring Aggregate Performance on Prices
+# Measuring Performance on Prices
 agg_time_0 = process_time()
 for i in range(0, 10000, 100):
     start_value = 100000000 + i
