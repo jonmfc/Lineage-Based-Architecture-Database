@@ -4,10 +4,9 @@ from lstore.transaction import Transaction
 from lstore.transaction_worker import TransactionWorker
 
 from random import randint, seed
-from time import time  # Importing time module to measure runtime
+from time import time 
 import shutil
 import os
-# Initial conditions for test execution
 stock_tracking_enabled = True
 purchase_tracking_enabled = True
 
@@ -33,7 +32,7 @@ def delete_test_databases():
     for directory in directories_to_delete:
         try:
             if os.path.exists(directory):
-                shutil.rmtree(directory)  # Recursively delete a directory tree
+                shutil.rmtree(directory) 
         except Exception as e:
             continue
 
@@ -41,19 +40,19 @@ def delete_test_databases():
 
 def stock_test():
     global overall_score, passed_tests, failed_tests
-    start_time = time()  # Start time of the test
+    start_time = time() 
 
     print("Initiating stock tracking test")
     if stock_tracking_enabled:
         lineageDB = Database()
         lineageDB.open('./Tracking_Test_DB')
 
-        # Creating a table for stock information and preparing data
+        # Creates table of stock info for test
         stock_table = lineageDB.create_table('Stocks', 5, 0)
         stock_query = Query(stock_table)
         seed(3562901)
 
-        record_count = 1000  # Reduced for demonstration
+        record_count = 1000 
         transaction_count = 100000
         worker_threads = 8
 
@@ -78,7 +77,7 @@ def stock_test():
         for worker in transaction_workers:
             worker.join()
 
-        # Simulate test verification (Replace with actual verification logic)
+        
     if verify_records(lineageDB, stock_table, stock_records):
         print("Stock tracking test passed.")
         passed_tests += 1
@@ -87,12 +86,12 @@ def stock_test():
         failed_tests += 1
 
 
-        end_time = time()  # End time of the test
+        end_time = time() 
         print(f"Stock insertion test completed in {end_time - start_time:.2f} seconds")
 
 def purchase_test():
     global overall_score, passed_tests, failed_tests
-    start_time = time()  # Start time of the test
+    start_time = time()  
 
     print("Initiating purchase tracking test")
     if purchase_tracking_enabled:
@@ -103,7 +102,7 @@ def purchase_test():
         purchases_query = Query(purchases_table)
         seed(3562901)
 
-        record_count = 10  # Reduced for demonstration
+        record_count = 10
         transaction_count = 10
         worker_threads = 8
 
@@ -128,7 +127,6 @@ def purchase_test():
         for worker in transaction_workers:
             worker.join()
 
-        # Simulate test verification (Replace with actual verification logic)
         if verify_records(lineageDB, purchases_table, purchase_records):
             print("Purchase tracking test passed.")
             passed_tests += 1
@@ -136,7 +134,7 @@ def purchase_test():
             print("Purchase tracking test failed.")
             failed_tests += 1
 
-        end_time = time()  # End time of the test
+        end_time = time() 
         print(f"Purchase insertion test completed in {end_time - start_time:.2f} seconds")
 
 def run_tests():
@@ -146,7 +144,7 @@ def run_tests():
     if purchase_tracking_enabled:
         purchase_test()
 
-    # Reporting
+    # Final Report
     print("\n------------------------------------")
     print(f"Total Passed Tests: {passed_tests}")
     print(f"Total Failed Tests: {failed_tests}")
@@ -157,5 +155,5 @@ def run_tests():
     else:
         print("No tests were executed.")
     print("--------------------------------------\n")
-delete_test_databases() # if you want to look at the db created 
+delete_test_databases() # if you want to look at the db created remove this line (Note that data is stored in bin files and will be unreadable)
 run_tests()
