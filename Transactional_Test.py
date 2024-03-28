@@ -144,7 +144,7 @@ def run_tests():
     if purchase_tracking_enabled:
         purchase_test()
 
-    # Final Report
+    # Final Report Print
     print("\n------------------------------------")
     print(f"Total Passed Tests: {passed_tests}")
     print(f"Total Failed Tests: {failed_tests}")
